@@ -1,0 +1,255 @@
+/* Global Styles (Material UI Inspired) */
+body {
+    font-family: 'Roboto', sans-serif; /* Google Roboto Font */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Dark grey text */
+    background-color: #f8f9fa; /* Light grey background */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #1976d2; /* Material Blue Accent Color */
+}
+
+a:hover {
+    text-decoration: none;
+    
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #fff; /* White navbar background */
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between; /* Logo on left, links on right */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for elevation */
+}
+
+.logo a {
+    font-size: 2.5rem;
+    font-weight: 500; /* Medium font weight for logo */
+    color: #333; /* Dark grey logo text */
+}
+
+.logo a:hover {
+    text-decoration: none; /* Remove underline on logo hover */
+    color: #333; /* Keep logo color on hover */
+}
+
+
+.nav-links a {
+    margin-left: 1.5rem;
+    color: #555; /* Medium grey for nav links */
+    font-weight: 400;
+}
+
+.nav-links a:hover {
+    color: #1976d2; /* Blue on nav link hover */
+}
+
+
+
+
+
+/* Style for the background image */
+.background-image {
+    position: fixed; /* Fix the image to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire viewport */
+    z-index: -1; /* Place the image behind other content */
+    opacity: 0.3; /* Set the opacity of the image */
+}
+
+/* Ensure the navbar and content are above the background image */
+.navbar {
+    background-color: #ffffff; /* Set navbar background color */
+    position: relative; /* Ensures the navbar is above the background image */
+    z-index: 1; /* Ensures the navbar is above the background image */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Ensures the content is above the background image */
+}
+
+
+
+
+
+/* Form Container */
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto; /* Increased top margin */
+    padding: 2rem; /* Increased padding */
+    background-color: #000000; 
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Increased gap */
+}
+
+.form-container label,
+.form-container input,
+.form-container button {
+    margin-bottom: 0.5rem; /* Reduced label margin */
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-container button[type="submit"] {
+    padding: 0.8rem 1.5rem;
+    background-color: #1976d2; /* Material Blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #1565c0; /* Darker blue on button hover */
+}
+
+
+/* Dashboard */
+.dashboard {
+    max-width: 900px; /* Slightly wider dashboard */
+    margin: 2rem auto; /* Increased top margin */
+    padding: 2rem; /* Increased padding */
+    background-color: #fff; /* White dashboard background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+}
+
+.user-details {
+    margin-top: 1.5rem; /* Increased user details margin */
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Increased gap between image and text */
+}
+
+.user-details img {
+    max-width: 150px; /* Slightly smaller user image */
+    border-radius: 50%;
+    border: 2px solid #eee; /* Light grey border for image */
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-info h2 {
+    margin-top: 0; /* Remove top margin from username */
+    margin-bottom: 0.5rem; /* Add bottom margin to username */
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.user-info p {
+    margin-bottom: 0.75rem;
+    color: #555;
+}
+
+
+/* Utility Classes (for more Material feel - optional, but good practice) */
+.elevation-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.elevation-2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* ... you can add more elevation classes as needed */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    min-height: 80vh; /* Ensure it takes at least full viewport height */
+    padding: 2rem;
+    text-align: center; /* Center text within container */
+}
+
+.home-content {
+    max-width: 800px; /* Limit content width for readability */
+    padding: 2rem;
+    background-color: #fff; /* White background for content area */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for content area */
+}
+
+.home-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700; /* Bold heading */
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.home-container h3 {
+    font-size: 1.5rem;
+    font-weight: 400; /* Regular weight for tagline */
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    gap: 1.5rem; /* Space between buttons */
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white; /* Default button text color */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+}
+
+.btn-primary {
+    background-color: #1976d2; /* Material Blue - Primary Button */
+}
+
+.btn-primary:hover {
+    background-color: #1565c0; /* Darker Blue on hover */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Bootstrap Secondary - Greyish */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}

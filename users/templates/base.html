@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Quickdoc{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <img src="{% static 'images/background.jpg' %}" alt="Background Image" class="background-image">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">QuickDoc</a>
+        </div>
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                <a href="{% url 'dashboard' %}">Dashboard</a>
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer; font-family: inherit; font-size: inherit; padding: 0; margin: 0;">Logout</button>
+                </form>
+            {% else %}     
+                {% if not request.path == '/login/' and not request.path == '/' %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+        <!-- Show Sign Up button only if not on the signup page AND not on the home page -->
+                {% if not request.path == '/signup/' and not request.path == '/' %}
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
