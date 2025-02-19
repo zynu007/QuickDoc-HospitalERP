@@ -88,7 +88,7 @@ a:hover {
     max-width: 500px;
     margin: 2rem auto; /* Increased top margin */
     padding: 2rem; /* Increased padding */
-    background-color: #000000; 
+    background-color: #fcfcfc; 
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
 }
