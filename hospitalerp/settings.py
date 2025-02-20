@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #1
+DEBUG =os.environ.get('DEBUG', 'False').lower() == 'true'#1
 
-ALLOWED_HOSTS = ['hospitalerp.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',"localhost 127.0.0.1").split(" ")
 
 
 # Application definition
@@ -89,7 +89,10 @@ DATABASES = {'default': {
     
     
 }
+database_url = os.environ.get("DATABASE_URL")
 DATABASES['default'] = dj_database_url.parse('postgresql://hospitalerp_postgres_user:DLooJisjAbfo6l6p4WLRgK3SLZbqyyzX@dpg-cur6et2j1k6c73ajjedg-a.singapore-postgres.render.com/hospitalerp_postgres')
+
+
 AUTH_USER_MODEL = 'users.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

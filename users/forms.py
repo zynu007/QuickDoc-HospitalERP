@@ -23,7 +23,6 @@ class UserRegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Add autocomplete attributes
         self.fields['username'].widget.attrs.update({'autocomplete': 'username'})
         self.fields['email'].widget.attrs.update({'autocomplete': 'email'})
         self.fields['password1'].widget.attrs.update({'autocomplete': 'new-password'})
