@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url 
-from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,9 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-load_dotenv()
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-run03!j!(c8uysdwrsuk+z_yvm2s&h+v==37xqe@v=_k91+t=q'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False #1
@@ -82,14 +82,14 @@ WSGI_APPLICATION = 'hospitalerp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-    
-}
-''''default': 
+DATABASES = {'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }'''
+}
+    
+    
+}
+DATABASES['default'] = dj_database_url.parse('postgresql://hospitalerp_postgres_user:DLooJisjAbfo6l6p4WLRgK3SLZbqyyzX@dpg-cur6et2j1k6c73ajjedg-a.singapore-postgres.render.com/hospitalerp_postgres')
 AUTH_USER_MODEL = 'users.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
