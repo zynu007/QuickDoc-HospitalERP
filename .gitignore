@@ -5,9 +5,7 @@ __pycache__/
 local_settings.py
 db.sqlite3
 venv/
-.env/
 .venv/
-env/
 ENV/
 .vscode/
 .Trashes
