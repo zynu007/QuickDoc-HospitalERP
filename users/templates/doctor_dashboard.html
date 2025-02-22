@@ -7,11 +7,12 @@
     <h2>Welcome Dr. {{ user.first_name }}!</h2>
     <div class="user-details">
         <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
-        <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>User Type: Doctor{{user.id}}</p>
+        <p>Name: {{ user.first_name|title }} {{ user.last_name|title }}</p>
         <p>Email: {{ user.email }}</p>
-        <p>Address: {{ user.address_line1 }}</p>
-        <p>City: {{ user.city }}</p>
-        <p>State: {{ user.state }}</p>
+        <p>Address: {{ user.address_line1|title }}</p>
+        <p>City: {{ user.city|title }}</p>
+        <p>State: {{ user.state|title }}</p>
         <p>Pincode: {{ user.pincode }}</p>
     </div>
 </div>

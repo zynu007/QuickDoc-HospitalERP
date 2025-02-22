@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the signup form element
     const form = document.getElementById('signup-form');
     
-    // Add submit event listener to the form
+    
     form.addEventListener('submit', function(event) {
         // Get password and confirm password fields
         const password1 = form.querySelector('input[name="password1"]');
