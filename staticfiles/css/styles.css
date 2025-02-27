@@ -132,9 +132,9 @@ a:hover {
 
 /* Dashboard */
 .dashboard {
-    max-width: 900px; 
+    max-width: 1000px; 
     margin: 2rem auto; 
-    padding: 2rem; 
+    padding: 2rem auto; 
     background-color: #fff;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
@@ -253,3 +253,85 @@ a:hover {
 .btn-secondary:hover {
     background-color: #5a6268; 
 }
+
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+.dashboard-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.recent-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-card-mini {
+    padding: 1.2rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #1976d2;
+}
+
+.blog-card-mini h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.blog-card-mini p {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    margin-bottom: 0.8rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.badge.published {
+    background-color: #4caf50;
+    color: white;
+}
+
+.badge.draft {
+    background-color: #ff9800;
+    color: white;
+}
+
+.view-all-link {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    color: #1976d2;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Import blog styles */
+@import url('blog-styles.css');

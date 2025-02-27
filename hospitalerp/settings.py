@@ -23,12 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
+#SECRET_KEY = '2170cc753c1c72b64add70f7cb20cbd0'
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG =os.environ.get('DEBUG', 'False').lower() == 'true'#1
+#DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',"localhost 127.0.0.1").split(" ")
-
+#ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +90,7 @@ DATABASES = {'default': {
         'NAME': BASE_DIR / 'db.sqlite3',
 }
     
-    
-}
+    }
 database_url = os.environ.get("DATABASE_URL")
 DATABASES['default'] = dj_database_url.parse('postgresql://hospitalerp_postgres_user:DLooJisjAbfo6l6p4WLRgK3SLZbqyyzX@dpg-cur6et2j1k6c73ajjedg-a.singapore-postgres.render.com/hospitalerp_postgres')
 

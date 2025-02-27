@@ -41,3 +41,15 @@ def dashboard(request):
 def custom_logout(request):
     logout(request)
     return redirect('home')  
+
+
+@login_required
+def dashboard(request):
+    if hasattr(request.user, 'is_doctor') and request.user.is_doctor:
+        # For doctor users, get their blog posts
+        from blog.models import BlogPost
+        recent_posts = BlogPost.objects.filter(author=request.user).order_by('-created_at')[:3]
+        return render(request, 'doctor_dashboard.html', {'user': request.user, 'recent_posts': recent_posts})
+    else:
+        # For patient users
+        return render(request, 'patient_dashboard.html', {'user': request.user})

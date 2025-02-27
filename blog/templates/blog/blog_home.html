@@ -1,0 +1,54 @@
+{% extends 'base.html' %}  
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/blog/css/blog_styles.css"> 
+{% endblock %}
+
+{% block title %}Blog{% endblock %}
+
+{% block extra_head %}
+<script src="/static/blog/js/blog_card.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+    <h1 class="blog-title">QuickDoc Blog</h1>
+    
+    <div class="blog-filters">
+        <h3>Filter by Category:</h3>
+        <div class="category-buttons">
+            <a href="{% url 'blog_home' %}" class="btn category-btn {% if not selected_category %}active{% endif %}">All</a>
+            {% for cat_value, cat_name in categories %}
+                <a href="{% url 'blog_home' %}?category={{ cat_value }}" class="btn category-btn {% if selected_category == cat_value %}active{% endif %}">{{ cat_name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% if user.is_doctor %}
+    <div class="blog-actions">
+        <a href="{% url 'blog_create' %}" class="btn btn-primary">Create New Post</a>
+        <a href="{% url 'my_posts' %}" class="btn btn-secondary">My Posts</a>
+    </div>
+    {% endif %}
+    
+    <div class="blog-posts">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">{{ post.get_category_display }}</span>
+                        <h3 class="blog-card-title">{{ post.title }}</h3>
+                        <p class="blog-card-summary">{{ post.truncated_summary }}</p>
+                        <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-posts-message">No blog posts found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

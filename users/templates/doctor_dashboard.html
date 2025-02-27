@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="dashboard">
-    <h2>Welcome Dr. {{ user.first_name }}!</h2>
+    <h2>Hello Dr. {{ user.first_name }}!</h2>
     <div class="user-details">
         <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
         <p>User Type: Doctor</p>
@@ -14,6 +14,35 @@
         <p>City: {{ user.city|title }}</p>
         <p>State: {{ user.state|title }}</p>
         <p>Pincode: {{ user.pincode }}</p>
+    </div>
+    
+   
+    <div class="dashboard-section">
+        <h3>My Recent Blog Posts</h3>
+        <div class="recent-posts">
+            {% if user.blogpost_set.exists %}
+                <div class="recent-posts-grid">
+                    {% for post in user.blogpost_set.all|slice:":3" %}
+                        <div class="blog-card-mini">
+                            <h4>{{ post.title }}</h4>
+                            <p>{{ post.truncated_summary }}</p>
+                            <div class="status-badge">
+                                {% if post.is_published %}
+                                    <span class="badge published">Published</span>
+                                {% else %}
+                                    <span class="badge draft">Draft</span>
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary">View</a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'my_posts' %}" class="view-all-link">View all my posts</a>
+            {% else %}
+                <p>You haven't created any blog posts yet.</p>
+                <a href="{% url 'blog_create' %}" class="btn btn-primary">Create Your First Post</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}

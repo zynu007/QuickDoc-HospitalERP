@@ -1,0 +1,54 @@
+{% extends 'base.html' %}  
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/blog/css/blog_styles.css"> 
+{% endblock %}
+
+{% block title %}My Blog Posts{% endblock %}
+
+{% block extra_head %}
+<script src="/static/blog/js/blog_card.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+    <h1 class="blog-title">My Blog Posts</h1>
+    
+    <div class="blog-actions">
+        <a href="{% url 'blog_create' %}" class="btn btn-primary">Create New Post</a>
+        <a href="{% url 'blog_home' %}" class="btn btn-secondary">All Posts</a>
+    </div>
+    
+    <div class="blog-posts">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="blog-card {% if not post.is_published %}draft{% endif %}">
+                    <div class="blog-card-image">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </div>
+                    <div class="blog-card-content">
+                        <span class="blog-card-category">{{ post.get_category_display }}</span>
+                        <h3 class="blog-card-title">{{ post.title }}</h3>
+                        <p class="blog-card-summary">{{ post.truncated_summary }}</p>
+                        <div class="blog-card-status">
+                            {% if post.is_published %}
+                                <span class="status published">Published</span>
+                            {% else %}
+                                <span class="status draft">Draft</span>
+                            {% endif %}
+                        </div>
+                        <div class="blog-card-actions">
+                            <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary">View</a>
+                            {% if not post.is_published %}
+                                <a href="{% url 'publish_post' post.id %}" class="btn btn-secondary">Publish</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-posts-message">You haven't created any blog posts yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

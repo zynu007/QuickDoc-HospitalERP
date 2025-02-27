@@ -1,0 +1,41 @@
+{% extends 'base.html' %}  
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/blog/css/blog_styles.css"> 
+{% endblock %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="blog-detail-container">
+    <div class="blog-detail-header">
+        <h1 class="blog-detail-title">{{ post.title }}</h1>
+        <div class="blog-detail-meta">
+            <span class="blog-detail-category">{{ post.get_category_display }}</span>
+            <span class="blog-detail-date">{{ post.created_at|date:"F j, Y" }}</span>
+            <span class="blog-detail-author">By Dr. {{ post.author.first_name }} {{ post.author.last_name }}</span>
+        </div>
+    </div>
+    
+    <div class="blog-detail-image">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    </div>
+    
+    <div class="blog-detail-summary">
+        <h3>Summary</h3>
+        <p>{{ post.summary }}</p>
+    </div>
+    
+    <div class="blog-detail-content">
+        {{ post.content|linebreaks }}
+    </div>
+    
+    <div class="blog-detail-actions">
+        <a href="{% url 'blog_home' %}" class="btn btn-secondary">Back to Blog</a>
+        
+        {% if user == post.author and not post.is_published %}
+        <a href="{% url 'publish_post' post.id %}" class="btn btn-primary">Publish</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
