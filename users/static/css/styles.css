@@ -32,7 +32,7 @@ a:hover {
 .logo a {
     font-size: 2.5rem;
     font-weight: 500; /* Medium font weight for logo */
-    color: #333; /* Dark grey logo text */
+    color: #111111; /* Dark grey logo text */
 }
 
 .logo a:hover {
@@ -43,7 +43,7 @@ a:hover {
 
 .nav-links a {
     margin-left: 1.5rem;
-    color: #555; /* Medium grey for nav links */
+    color: #000000; /* Medium grey for nav links */
     font-weight: 400;
 }
 
@@ -134,7 +134,7 @@ a:hover {
 .dashboard {
     max-width: 1000px; 
     margin: 2rem auto; 
-    padding: 2rem auto; 
+    padding: 2rem ; 
     background-color: #fff;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
@@ -142,15 +142,19 @@ a:hover {
 
 .user-details {
     margin-top: 1.5rem; 
+    padding: 1.5rem;
     display: flex;
-    align-items: center;
-    gap: 2rem; 
+    align-items: flex-start; 
+    gap: 1rem; 
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); 
 }
 
 .user-details img {
     max-width: 150px; 
     border-radius: 50%;
-    border: 2px solid #eee; 
+    border: 5px solid #eee; 
 }
 
 .user-info {
@@ -165,8 +169,9 @@ a:hover {
 }
 
 .user-info p {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     color: #555;
+    font-size: 1rem;
 }
 
 
@@ -275,6 +280,10 @@ a:hover {
     color: #333;
 }
 
+
+
+
+
 .recent-posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -322,16 +331,7 @@ a:hover {
     color: white;
 }
 
-.view-all-link {
-    display: block;
-    text-align: right;
-    margin-top: 1rem;
-    color: #1976d2;
-}
 
-.view-all-link:hover {
-    text-decoration: underline;
-}
 
 /* Import blog styles */
 @import url('blog-styles.css');

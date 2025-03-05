@@ -1,0 +1,63 @@
+<!-- booking/templates/booking/book_appointment.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/booking/css/styles.css"> 
+{% endblock %}
+
+{% block title %}Book Appointment with Dr. {{ doctor.last_name }}{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Book Appointment</h2>
+    
+    <div class="doctor-profile-header">
+        <div class="doctor-img">
+            {% if doctor.profile_picture %}
+                <img src="{{ doctor.profile_picture.url }}" alt="Doctor's profile picture">
+            {% else %}
+                <div class="placeholder-img">Dr</div>
+            {% endif %}
+        </div>
+        <div class="doctor-info">
+            <h3>Dr. {{ doctor.first_name|title }} {{ doctor.last_name|title }}</h3>
+            <p class="specialty">{{ doctor.get_specialty_display }}</p>
+            <p class="location">{{ doctor.city }}, {{ doctor.state }}</p>
+        </div>
+    </div>
+    
+    <div class="appointment-form">
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.appointment_date.id_for_label }}">Appointment Date:</label>
+                {{ form.appointment_date }}
+                {% if form.appointment_date.errors %}
+                    <div class="error-message">{{ form.appointment_date.errors }}</div>
+                {% endif %}
+                <small class="help-text">{{ form.appointment_date.help_text }}</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.start_time.id_for_label }}">Start Time:</label>
+                {{ form.start_time }}
+                {% if form.start_time.errors %}
+                    <div class="error-message">{{ form.start_time.errors }}</div>
+                {% endif %}
+                <small class="help-text">{{ form.start_time.help_text }}</small>
+            </div>
+            
+            <div class="form-group">
+                <p><strong>Appointment Duration:</strong> 45 minutes</p>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                <a href="{% url 'doctor_list' %}" class="btn btn-secondary">Back to Doctors</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+<!-- booking/templates/booking/doctor_appointments.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/booking/css/styles.css"> 
+{% endblock %}
+
+{% block title %}My Appointments{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>My Appointments</h2>
+    
+    {% if not request.user.google_calendar_authenticated %}
+    <div class="google-calendar-sync alert alert-warning">
+        <h3>Connect Your Google Calendar</h3>
+        <p>Sync your appointments automatically with your Google Calendar.</p>
+        <a href="{% url 'google_calendar_auth' %}" class="btn btn-primary">
+            Connect Google Calendar
+        </a>
+    </div>
+    {% else %}
+    <div class="google-calendar-sync alert alert-success">
+        <p>🗓️ Patient appointments are synced to your Google Calendar. Thank you!</p>
+    </div>
+    {% endif %}
+    
+    {% if appointments %}
+        <div class="appointment-list">
+            {% for appointment in appointments %}
+                <div class="appointment-card">
+                    <div class="patient-info">
+                        {% if appointment.patient.profile_picture %}
+                            <img src="{{ appointment.patient.profile_picture.url }}" alt="Patient's profile picture">
+                        {% else %}
+                            <div class="placeholder-img">P</div>
+                        {% endif %}
+                        <h3>{{ appointment.patient.first_name|title }} {{ appointment.patient.last_name|title }}</h3>
+                    </div>
+                    <div class="appointment-details">
+                        <p><strong>Date:</strong> {{ appointment.appointment_date }}</p>
+                        <p><strong>Time:</strong> {{ appointment.start_time|time:"g:i A" }} - {{ appointment.end_time|time:"g:i A" }}</p>
+                        <p class="status {{ appointment.status|lower }}">Status: {{ appointment.status }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-appointments">
+            <p>You don't have any appointments scheduled yet.</p>
+        </div>
+    {% endif %}
+    
+    <div class="back-button">
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

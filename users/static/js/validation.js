@@ -1,8 +1,5 @@
-// Wait for the DOM to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', function() {
-    // Get the signup form element
+document.addEventListener('DOMContentLoaded', function() {t
     const form = document.getElementById('signup-form');
-    
     
     form.addEventListener('submit', function(event) {
         // Get password and confirm password fields
@@ -13,9 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (password1.value !== password2.value) {
             // Prevent form submission
             event.preventDefault();
-            // Show error message
             alert('Passwords do not match!');
-            // Clear password fields
+            // Clears password fields
             password1.value = '';
             password2.value = '';
         }

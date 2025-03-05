@@ -19,6 +19,7 @@ def signup(request):
                 user.is_patient = True
             elif user_type == 'doctor':
                 user.is_doctor =True
+                user.specialty = form.cleaned_data.get('specialty')
 
             user.save()
             login(request, user)

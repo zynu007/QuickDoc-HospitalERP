@@ -16,4 +16,5 @@ ehthumbs.db
 *.bak
 *.backup
 *.crdownload
-
+credentials.json
+token.pkl

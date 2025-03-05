@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="dashboard">
-    <h2>Hello, {{ user.first_name }}!</h2>
+    <h2>Hello, {{ user.first_name|title }}!</h2>
     <div class="user-details">
         <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
         <p>User Type: Patient</P>
@@ -15,5 +15,12 @@
         <p>State: {{ user.state|title }}</p>
         <p>Pincode: {{ user.pincode }}</p>
     </div>
+    <div class="dashboard-section">
+        <div class="action-buttons">
+            <a href="{% url 'my_bookings' %}" class="btn btn-primary">My Bookings</a>
+            <a href="{% url 'doctor_list' %}" class="btn btn-primary">Book Now</a>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

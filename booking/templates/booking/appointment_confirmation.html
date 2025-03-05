@@ -1,0 +1,63 @@
+<!-- booking/templates/booking/appointment_confirmation.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/booking/css/styles.css"> 
+{% endblock %}
+
+{% block title %}Appointment Confirmation{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <div class="confirmation-container">
+        <div class="confirmation-header">
+            <h2>Appointment Confirmed!</h2>
+            <div class="confirmation-icon">✓</div>
+        </div>
+        
+        <div class="confirmation-details">
+            <h3>Appointment Details:</h3>
+            
+            <div class="detail-row">
+                <span class="detail-label">Doctor:</span>
+                <span class="detail-value">Dr. {{ appointment.doctor.first_name|title }} {{ appointment.doctor.last_name|title }}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Specialty:</span>
+                <span class="detail-value">{{ appointment.doctor.get_specialty_display }}</span><!-- added -->
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Date:</span>
+                <span class="detail-value">{{ appointment.appointment_date }}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Start Time:</span>
+                <span class="detail-value">{{ appointment.start_time|time:"g:i A" }}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">End Time:</span>
+                <span class="detail-value">{{ appointment.end_time|time:"g:i A" }}</span>
+            </div>
+            
+            <div class="detail-row">
+                <span class="detail-label">Status:</span>
+                <span class="detail-value status-{{ appointment.status|lower }}">{{ appointment.status }}</span>
+            </div>
+        </div>
+        <div class="confirmation-message">
+            <p>We have added your appointment to the doctors' calendar.</p>
+            <p>Please arrive 15 minutes before your scheduled appointment time.</p>
+        </div>
+        
+        <div class="confirmation-actions">
+            <a href="{% url 'my_bookings' %}" class="btn btn-primary">View My Bookings</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,397 @@
+/* Booking System Styles */
+
+/* Confirmation Page Styles */
+.confirmation-container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.confirmation-icon {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    line-height: 60px;
+    margin: 1rem 0;
+}
+
+.confirmation-details {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #1976d2;
+}
+
+.confirmation-details h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    flex: 0 0 120px;
+    font-weight: 500;
+    color: #555;
+}
+
+.detail-value {
+    flex: 1;
+    color: #333;
+}
+
+.confirmation-message {
+    background-color: #e8f5e9;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #4caf50;
+}
+
+.confirmation-message p {
+    margin: 0.5rem 0;
+    color: #2e7d32;
+}
+
+.confirmation-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Doctor List Page Styles */
+.doctor-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.doctor-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-profile {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.doctor-profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #eee;
+}
+
+.placeholder-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #1976d2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.doctor-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.doctor-info h3 {
+    margin: 0.5rem 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.specialty {
+    color: #1976d2;
+    font-weight: 500;
+    margin: 0.3rem 0;
+}
+
+.location {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.doctor-actions {
+    margin-top: auto;
+    text-align: center;
+}
+
+/* Doctor Profile Header - For Booking Page */
+.doctor-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid #1976d2;
+}
+
+.doctor-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #eee;
+}
+
+/* Appointment & Booking Cards */
+.appointment-list,
+.booking-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.appointment-card,
+.booking-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.appointment-card:hover,
+.booking-card:hover {
+    transform: translateY(-3px);
+}
+
+.patient-info,
+.doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.patient-info img,
+.doctor-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.appointment-details {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.status {
+    font-weight: 500;
+}
+
+.status.confirmed {
+    color: #4caf50;
+}
+
+.status.pending {
+    color: #ff9800;
+}
+
+.status.cancelled {
+    color: #f44336;
+}
+
+.status.completed {
+    color: #1976d2;
+}
+
+.status-confirmed {
+    color: #4caf50;
+}
+
+.status-pending {
+    color: #ff9800;
+}
+
+.status-cancelled {
+    color: #f44336;
+}
+
+.status-completed {
+    color: #1976d2;
+}
+
+/* Booking Actions */
+.booking-actions,
+.back-button {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* No Bookings or Appointments Message */
+.no-bookings,
+.no-appointments {
+    text-align: center;
+    padding: 2.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.no-bookings p,
+.no-appointments p {
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Appointment Form */
+.appointment-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #1976d2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.help-text {
+    display: block;
+    margin-top: 0.4rem;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .doctor-profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .appointment-list,
+    .booking-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .confirmation-actions,
+    .booking-actions,
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
+
+
+.google-calendar-sync {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.google-calendar-sync .btn-small {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+.sync-help-text {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+
+
+

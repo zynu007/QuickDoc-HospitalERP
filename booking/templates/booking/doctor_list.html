@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/booking/css/styles.css"> 
+{% endblock %}
+
+{% block title %}Our Doctors{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Our Doctors</h2>
+    
+    <div class="doctor-list">
+        {% for doctor in doctors %}
+            <div class="doctor-card">
+                <div class="doctor-profile">
+                    {% if doctor.profile_picture %}
+                        <img src="{{ doctor.profile_picture.url }}" alt="Doctor's profile picture">
+                    {% else %}
+                        <div class="placeholder-img">Dr</div>
+                    {% endif %}
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. {{ doctor.first_name|title }} {{ doctor.last_name|title }}</h3>
+                    <p class="specialty">{{ doctor.get_specialty_display }}</p>
+                    
+                </div>
+                <div class="doctor-actions">
+                    <a href="{% url 'book_appointment' doctor.id %}" class="btn btn-primary">Book Appointment</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No doctors are currently available in the system.</p>
+        {% endfor %}
+    </div>
+    <div class="back-button">
+        <a href="{% url 'my_bookings' %}" class="btn btn-secondary">Back to My Bookings</a>
+    </div>
+</div>
+{% endblock %}

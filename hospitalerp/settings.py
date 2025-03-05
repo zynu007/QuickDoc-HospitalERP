@@ -30,8 +30,10 @@ DEBUG =os.environ.get('DEBUG', 'False').lower() == 'true'#1
 #DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',"localhost 127.0.0.1").split(" ")
-#ALLOWED_HOSTS = ['127.0.0.1']
-
+#ALLOWED_HOSTS = ['127.0.0.1', 'localhost:3306', 'localhost']
+#GOOGLE_CREDENTIALS_PATH = os.path.join(BASE_DIR, 'credentials.json')
+#GOOGLE_TOKEN_PATH = os.path.join(BASE_DIR, 'token.pkl')
+#os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'blog',
+    'booking'
 ]
 
 MIDDLEWARE = [
@@ -85,14 +88,26 @@ WSGI_APPLICATION = 'hospitalerp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASES = {'default':{
+           'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'hospitalerpdb12',  
+            'USER': 'root',        
+           'PASSWORD': 'Szmkd@007',        
+            'HOST': 'localhost',   
+            'PORT': '3306',
+   }
+ 
 }
+
+
+#{'default': {
+ #       'ENGINE': 'django.db.backends.sqlite3',
+ #       'NAME': BASE_DIR / 'db.sqlite3',
+#}
     
-    }
-database_url = os.environ.get("DATABASE_URL")
-DATABASES['default'] = dj_database_url.parse('postgresql://hospitalerp_postgres_user:DLooJisjAbfo6l6p4WLRgK3SLZbqyyzX@dpg-cur6et2j1k6c73ajjedg-a.singapore-postgres.render.com/hospitalerp_postgres')
+ #   }
+#database_url = os.environ.get("DATABASE_URL")
+#DATABASES ['default'] = dj_database_url.parse('postgresql://hospitalerp_user:Ch7zWGullPf8kzQmrQeUPNajWHvCJQLU@dpg-cv09pr52ng1s73ek8ku0-a.singapore-postgres.render.com/hospitalerp')
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -118,13 +133,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
+
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True
+
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
-USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
